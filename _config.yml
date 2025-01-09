@@ -1,8 +1,8 @@
 name: "firestrongarch's blog"
 description: "个人技术博客"
 
-avatar: https://avatars.githubusercontent.com/u/65007434?v=4
-favicon: https://avatars.githubusercontent.com/u/65007434?v=4
+avatar: https://firestrongarch.github.io/images/avatar.jpg
+favicon: https://firestrongarch.github.io/images/avatar.jpg
 
 navigation:
   - name: 首页
