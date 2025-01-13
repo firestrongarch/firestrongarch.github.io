@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+  }
+  
+  .toc-wrapper {
+    position: fixed; /* 固定定位 */
+    top: 20px; /* 距离顶部的位置 */
+    right: 20px; /* 距离右侧的位置 */
+    width: 250px; /* 目录宽度 */
+    max-height: 90vh; /* 最大高度 */
+    overflow-y: auto; /* 允许滚动 */
+  }
+  
+  .content {
+    margin-right: 300px; /* 留出目录的宽度 */
+    padding: 20px;
+  }
