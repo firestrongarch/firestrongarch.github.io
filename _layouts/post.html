@@ -3,31 +3,9 @@ layout: default
 ---
 
 <article class="posts">
-    <script src="../js/scrollnav.min.umd.js"></script>
-    <!-- <script>
-        const ct = document.querySelector('entry');  //".post-content"指向文章内容所在的div，需根据实际情况修改
-        scrollnav.init(ct, { 
-            debug: false,
-            easingStyle: 'linear',
-            //section为一级目录，subsection为二级目录
-            //以下两行意为h2为一级目录，h3为二级目录（个人只需要一级目录，所以注释了二级目录）
-            sections: ($('entry > h1').length>0) ? 'h2' : 'h3',  
-            subSections: ($('entry > h1').length>0) ? 'h3' : 'h4',
-        });
-    </script> -->
-    <script>
-        // 选择文章内容的容器
-        const content = document.querySelector('.entry');
-      
-        // 初始化 scrollnav
-        scrollnav.init(content, {
-          debug: false, // 是否启用调试模式
-          easingStyle: 'linear', // 滚动动画效果
-          sections: 'h2', // 一级目录使用 h2 标签
-          subSections: 'h3', // 二级目录使用 h3 标签（如果有）
-        });
-      </script>
-    
+  <!-- 引入 scrollnav 库 -->
+  <script src="https://unpkg.com/scrollnav@3.0.1/dist/scrollnav.min.umd.js"></script>
+
   <h1>{{ page.title }}</h1>
 
   <div clsss="meta">
@@ -46,11 +24,31 @@ layout: default
     </ul>
   </div>
 
-  
-
+  <!-- 文章内容 -->
   <div class="entry">
     {{ content }}
   </div>
+
+  <!-- 初始化 scrollnav -->
+  <script>
+    // 等待 DOM 加载完成
+    document.addEventListener('DOMContentLoaded', function () {
+      // 选择文章内容的容器
+      const content = document.querySelector('.entry');
+
+      // 初始化 scrollnav
+      if (content) {
+        scrollnav.init(content, {
+          debug: false, // 是否启用调试模式
+          easingStyle: 'linear', // 滚动动画效果
+          sections: 'h2', // 一级目录使用 h2 标签
+          subSections: 'h3', // 二级目录使用 h3 标签（如果有）
+        });
+      } else {
+        console.error('未找到 .entry 容器');
+      }
+    });
+  </script>
 
   {% include disqus.html %}
   {% include gitalk.html %}
@@ -58,14 +56,14 @@ layout: default
 
 <div class="pagination">
   {% if page.previous.url %}
-    <span class="prev" >
+    <span class="prev">
       <a href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
         ← 上一篇
       </a>
     </span>
   {% endif %}
   {% if page.next.url %}
-    <span class="next" >
+    <span class="next">
       <a href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
         下一篇 →
       </a>
