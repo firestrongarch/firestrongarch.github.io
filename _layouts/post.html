@@ -19,29 +19,6 @@ layout: default
       z-index: 1000;
     }
 
-    /* 移动端隐藏目录 */
-    @media (max-width: 768px) {
-        .toc-wrapper {
-        display: none;
-        position: static;
-        width: 100%;
-        max-height: 200px;
-        margin-bottom: 20px;
-        }
-
-        .toc-toggle {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        text-align: center;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        }
-    }
-  
     .toc {
       font-size: 14px;
     }
@@ -63,17 +40,32 @@ layout: default
     .toc a:hover {
       color: #007bff;
     }
+
+    /* 移动端调整目录样式 */
+    @media (max-width: 768px) {
+        .toc-wrapper {
+            position: fixed;
+            top: 60px; /* 留出按钮的空间 */
+            left: 10px;
+            right: 10px;
+            width: auto;
+            max-height: 50vh;
+            background-color: rgba(249, 249, 249, 0.95);
+        }
+
+        .toc {
+            font-size: 14px;
+        }
+
+        .toc ul {
+            padding-left: 10px;
+        }
+
+        .toc ul li {
+            margin: 5px 0;
+        }
+    }
 </style>
-
-<!-- 移动端目录切换按钮 -->
-<button class="toc-toggle" onclick="toggleToc()">显示目录</button>
-
-<script>
-  function toggleToc() {
-    const tocWrapper = document.querySelector('.toc-wrapper');
-    tocWrapper.style.display = tocWrapper.style.display === 'block' ? 'none' : 'block';
-  }
-</script>
 
 <article class="posts">
  
