@@ -4,7 +4,7 @@ layout: default
 
 <article class="posts">
     <script src="../js/scrollnav.min.umd.js"></script>
-    <script>
+    <!-- <script>
         const ct = document.querySelector('entry');  //".post-content"指向文章内容所在的div，需根据实际情况修改
         scrollnav.init(ct, { 
             debug: false,
@@ -14,7 +14,19 @@ layout: default
             sections: ($('entry > h1').length>0) ? 'h2' : 'h3',  
             subSections: ($('entry > h1').length>0) ? 'h3' : 'h4',
         });
-    </script>
+    </script> -->
+    <script>
+        // 选择文章内容的容器
+        const content = document.querySelector('.entry');
+      
+        // 初始化 scrollnav
+        scrollnav.init(content, {
+          debug: false, // 是否启用调试模式
+          easingStyle: 'linear', // 滚动动画效果
+          sections: 'h2', // 一级目录使用 h2 标签
+          subSections: 'h3', // 二级目录使用 h3 标签（如果有）
+        });
+      </script>
     
   <h1>{{ page.title }}</h1>
 
