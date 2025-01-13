@@ -4,6 +4,44 @@ layout: default
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.min.js"></script>
 
+<style>
+    .toc-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 250px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+  
+    .toc {
+      font-size: 14px;
+    }
+  
+    .toc ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  
+    .toc ul li {
+      margin: 5px 0;
+    }
+  
+    .toc a {
+      text-decoration: none;
+      color: #333;
+    }
+  
+    .toc a:hover {
+      color: #007bff;
+    }
+</style>
+
 <article class="posts">
  
     <h1>{{ page.title }}</h1>
@@ -51,19 +89,6 @@ layout: default
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    tocbot.init({
-        tocSelector: '.toc', // 目录容器的选择器
-        contentSelector: '.entry', // 文章内容的选择器
-        headingSelector: 'h1, h2', // 需要生成目录的标题标签
-        hasInnerContainers: true, // 如果内容嵌套在容器中，设置为 true
-    });
-    });
-</script>
-
-<div class="toc-wrapper">
-    <div class="toc"></div>
-</div>    <script>
     document.addEventListener('DOMContentLoaded', function () {
     tocbot.init({
         tocSelector: '.toc', // 目录容器的选择器
