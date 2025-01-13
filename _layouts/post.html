@@ -46,10 +46,26 @@ layout: default
     .toc a:hover {
       color: #007bff; /* 鼠标悬停颜色 */
     }
-  </style>
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    tocbot.init({
+        tocSelector: '.toc', // 目录容器的选择器
+        contentSelector: '.entry', // 文章内容的选择器
+        headingSelector: 'h1, h2', // 需要生成目录的标题标签
+        hasInnerContainers: true, // 如果内容嵌套在容器中，设置为 true
+    });
+    });
+</script>
 
 <article class="posts">
  
+    <!-- 目录容器 -->
+    <div class="toc-wrapper">
+        <div class="toc"></div>
+    </div>
+
     <h1>{{ page.title }}</h1>
 
   <div clsss="meta">
@@ -94,17 +110,4 @@ layout: default
   {% endif %}
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    tocbot.init({
-        tocSelector: '.toc', // 目录容器的选择器
-        contentSelector: '.entry', // 文章内容的选择器
-        headingSelector: 'h1, h2', // 需要生成目录的标题标签
-        hasInnerContainers: true, // 如果内容嵌套在容器中，设置为 true
-    });
-    });
-</script>
 
-<div class="toc-wrapper">
-    <div class="toc"></div>
-</div>
