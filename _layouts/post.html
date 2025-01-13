@@ -3,10 +3,10 @@ layout: default
 ---
 
 <article class="posts">
-  <!-- 引入 scrollnav 库 -->
-  <script src="https://unpkg.com/scrollnav@3.0.1/dist/scrollnav.min.umd.js"></script>
-
-  <h1>{{ page.title }}</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.min.js"></script>
+  
+    <h1>{{ page.title }}</h1>
 
   <div clsss="meta">
     <span class="date">
@@ -29,26 +29,18 @@ layout: default
     {{ content }}
   </div>
 
-  <!-- 初始化 scrollnav -->
-  <script>
-    // 等待 DOM 加载完成
-    document.addEventListener('DOMContentLoaded', function () {
-      // 选择文章内容的容器
-      const content = document.querySelector('.entry');
-
-      // 初始化 scrollnav
-      if (content) {
-        scrollnav.init(content, {
-          debug: false, // 是否启用调试模式
-          easingStyle: 'linear', // 滚动动画效果
-          sections: 'h1', // 一级目录使用 h2 标签
-          subSections: 'h2', // 二级目录使用 h3 标签（如果有）
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        tocbot.init({
+            tocSelector: '.toc', // 目录容器的选择器
+            contentSelector: '.entry', // 文章内容的选择器
+            headingSelector: 'h1, h2', // 需要生成目录的标题标签
+            hasInnerContainers: true, // 如果内容嵌套在容器中，设置为 true
         });
-      } else {
-        console.error('未找到 .entry 容器');
-      }
-    });
-  </script>
+        });
+    </script>
+
+    <div class="toc"></div>
 
   {% include disqus.html %}
   {% include gitalk.html %}
@@ -70,3 +62,4 @@ layout: default
     </span>
   {% endif %}
 </div>
+
