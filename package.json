@@ -40,5 +40,9 @@
   },
   "engines": {
     "node": ">=18.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/firestrongarch/firestrongarch.github.io",
+  "author": "FuYi <1766423721@qq.com>",
+  "license": "MIT"
 }
