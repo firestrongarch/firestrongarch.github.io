@@ -112,8 +112,8 @@ const config = {
             title: '文档',
             items: [
               {
-                label: 'Windows系统配置',
-                to: '/docs/Windows系统配置',
+                label: 'windows',
+                to: '/docs/windows',
               },
             ],
           },
