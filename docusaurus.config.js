@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "firestrongarch's Site",
-  tagline: '生命不息 战斗不止',
+  tagline: '该玩玩 该学学',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -112,8 +112,8 @@ const config = {
             title: '文档',
             items: [
               {
-                label: '教程',
-                to: '/docs/intro',
+                label: 'Windows系统配置',
+                to: '/docs/Windows系统配置',
               },
             ],
           },
