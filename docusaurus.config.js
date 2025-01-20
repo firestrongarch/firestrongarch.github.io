@@ -113,7 +113,7 @@ const config = {
             items: [
               {
                 label: 'windows',
-                to: '/docs/windows',
+                to: '/docs/category/windows',
               },
             ],
           },
