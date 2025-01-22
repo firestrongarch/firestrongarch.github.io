@@ -3,33 +3,34 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 const FeatureList = [
-  {
-    title: '易于使用',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus 是从头开始设计的，易于安装和使用，可以快速启动您的网站。
-      </>
-    ),
-  },
-  {
-    title: '专注创作',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus 让你专注于你的文档，我们会处理杂务。请把文档<code>docs</code>移到文档目录中。
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        通过重用React来扩展或自定义您的网站布局。Docusaurus可以在重用相同的标题和脚注时进行扩展。
-      </>
-    ),
-  },
+    {
+    title: 'C/C++',
+    Svg: require('@site/static/img/cpp.svg').default,
+    // description: (
+    //   <>
+    //     Docusaurus 让你专注于你的文档，我们会处理杂务。请把文档<code>docs</code>移到文档目录中。
+    //   </>
+    // ),
+    },
+    {
+        title: 'SLAM',
+        Svg: require('@site/static/img/SLAM.svg').default,
+        // description: (
+        //   <>
+        //     Docusaurus 是从头开始设计的，易于安装和使用，可以快速启动您的网站。
+        //   </>
+        // ),
+    },
+
+    {
+        title: '单片机',
+        Svg: require('@site/static/img/MCU.svg').default,
+        // description: (
+        //   <>
+        //     通过重用React来扩展或自定义您的网站布局。Docusaurus可以在重用相同的标题和脚注时进行扩展。
+        //   </>
+        // ),
+    },
 ];
 
 function Feature({Svg, title, description}) {
