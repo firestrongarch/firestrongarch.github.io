@@ -65,5 +65,22 @@ scoop install scoop-cn/office-tool-plus
     关键配置：编号格式、编号位置、将级别链接到样式
     ![这是图片](./img/多级列表配置.png "修改样式")
 
-
+### 公式编辑
+1. **方案对比**
+    | **对比** | office(latex)  | MathType | AxMath  |
+    |---|---|---|---|
+    | **清晰度** | ⭐⭐⭐ |  ⭐⭐ |  ⭐ |
+    | **兼容性** | ⭐⭐⭐ |  ⭐ |  ⭐ |
+    | **编辑效率** | ⭐⭐⭐ |  ⭐⭐⭐ |  ⭐⭐⭐ |
+    | **功能** | ⭐⭐ |  ⭐⭐⭐ |  ⭐⭐⭐ |
+    | **性能** | ⭐⭐⭐ |  🥵 |  ⭐⭐⭐ |
+    | **价格** | ⭐⭐⭐ |  🥵 |  ⭐ |
+    | **AI解析** | ⭐⭐⭐ |  🥵 |  🥵 |
+    
+    综上，使用office直接编辑公式有着巨大优势，AI能直接解析latex并理解，懂的都懂。下面进行office math配置。
+2. **配置office(latex)**
+    - 下载[Latin Modern Math字体](https://www.gust.org.pl/projects/e-foundry/lm-math/download)
+    - 新建字体样式：
+    - 新建段落样式：
+    - 最终实现美观的latex公式，并且支持自动编号：
 <!-- ![alt text](image.png) -->
