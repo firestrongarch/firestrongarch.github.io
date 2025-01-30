@@ -17,6 +17,7 @@ wsl --install
 [wsl2]
 # 设置网络模式为镜像，使Linux的网络环境与Windows相同
 networkingMode=mirrored
+dnsTunneling=true
 # 设置最大内存
 memory=24GB
 # 设置交换内存，
