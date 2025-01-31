@@ -80,7 +80,17 @@ scoop install scoop-cn/office-tool-plus
     综上，使用office直接编辑公式有着巨大优势，AI能直接解析latex并理解，懂的都懂。下面进行office math配置。
 2. **配置office(latex)**
     - 下载[Latin Modern Math字体](https://www.gust.org.pl/projects/e-foundry/lm-math/download)
-    - 新建字体样式：
-    - 新建段落样式：
-    - 最终实现美观的latex公式，并且支持自动编号：
+    - 新建字体样式-文字效果-文本轮廓-实线黑色0.1磅，这样可以加粗公式：
+    ![alt text](./img/公式.png)
+    - 新建段落样式-设置1.1倍行距避免显示不全，两个制表位对于单栏分别在24.1居中和48.2右对齐：
+    ![alt text](./img/公式-1.png)
+    - 使用域代码 {SEQ Equation} 实现自动编号：
+    ![alt text](./img/公式.gif)
+    - 交叉引用：使用书签功能，需要手动创建书签然后引用，这里不再演示。
+
+3. **使用Mathtype插件自动编号**
+mathtype的公式不好用，但可以使用插件插件中的自动编号功能，并使用宏自动将所有编号加入标签：
+![alt text](./img/公式-2.png)
+更新所有编号与引用：
+![alt text](./img/公式-3.png)
 <!-- ![alt text](image.png) -->
