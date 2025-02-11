@@ -15,14 +15,17 @@ wsl --install
 使用code打开文件 `code $HOME/.wslconfig` ，写入内容：
 ```sh title="$HOME/.wslconfig"
 [wsl2]
-# 设置网络模式为镜像，使Linux的网络环境与Windows相同
+# 设置网络模式为镜像，使Linux的网络环境与Windows相同(可以使用clash等代理)
 networkingMode=mirrored
 dnsTunneling=true
+autoProxy=true
 # 设置最大内存
 memory=24GB
 # 设置交换内存，
 swap=16GB
 ```
+
+- **bug**：tun `内核堆栈`需要修改为`gvisor`，否则wsl2等虚拟机会出问题
 
 ## 第一次启动
 第一次启动需要设置Linux用户，该用户被视为Linux管理员，能够运行 `sudo` 管理命令。从开始菜单进入，点击ubuntu或在powershell键入 `ubuntu` 打开，输入用户名和密码。修改密码需要在Linux中输入 `psswd`。
