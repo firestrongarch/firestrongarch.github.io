@@ -43,6 +43,9 @@ sudo apt install zsh
 # 安装zimfw插件
 curl -fsSL https://gh.llkk.cc/https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
+# 设置默认shell
+chsh -s $(which zsh)
+
 # 修复Bug
 echo "skip_global_compinit=1" > ~/.zshenv
 ```
