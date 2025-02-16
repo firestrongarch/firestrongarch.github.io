@@ -48,4 +48,7 @@ chsh -s $(which zsh)
 
 # 修复Bug
 echo "skip_global_compinit=1" > ~/.zshenv
+
+git config --global user.name ""
+git config --global user.email ""
 ```
