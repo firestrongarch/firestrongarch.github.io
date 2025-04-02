@@ -5,6 +5,31 @@ sidebar_position: 2
 # CMake
 目前CMake已经成为C++默认的工具了，但CMake的复杂程度不亚于一门语言了，本文直接给出最正确的使用方式。
 
+## 基本模板
+
+```CMake
+
+cmake_minimum_required(VERSION 3.28.0)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_STANDARD 23)
+project(PojectName)
+
+if(MSVC)
+    # 获取编译器所在目录
+    get_filename_component(MSVC_COMPILER_DIR "${CMAKE_CXX_COMPILER}" DIRECTORY)
+    # 推断 MSVC 根目录（假设路径结构为 .../VC/Tools/MSVC/<version>/bin/Hostx64/x64）
+    get_filename_component(MSVC_ROOT_DIR "${MSVC_COMPILER_DIR}/../../../" ABSOLUTE)
+    # 构造 include 路径
+    set(MSVC_INCLUDE_DIR "${MSVC_ROOT_DIR}/include")
+    include_directories(${MSVC_INCLUDE_DIR})
+endif()
+
+include_directories(inc)
+add_executable(PojectName main.cpp)
+
+```
+
 ## 使用库
 
 ## 导出库
