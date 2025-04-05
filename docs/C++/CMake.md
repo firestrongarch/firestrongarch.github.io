@@ -3,12 +3,19 @@ sidebar_position: 2
 ---
 
 # CMake
-目前CMake已经成为C++默认的工具了，但CMake的复杂程度不亚于一门语言了，本文直接给出最正确的使用方式。
+目前CMake已经成为C++默认的工具了，但CMake的复杂程度不亚于一门语言了，下面给出最核心的CMake语法。
+```sh
+# CMake项目目录
+├───inc
+├───src
+│   └───main.cpp
+└───CMakeLists.txt
+```
 
-## 基本模板
+
+## CMakeLists基本模板
 
 ```CMake
-
 cmake_minimum_required(VERSION 3.28.0)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -25,12 +32,17 @@ if(MSVC)
     include_directories(${MSVC_INCLUDE_DIR})
 endif()
 
-include_directories(inc)
-add_executable(PojectName main.cpp)
+file(GLOB_RECURSE srcs CONFIGURE_DEPENDS src/*.cpp src/*.cc)
+add_executable(PojectName srcs)
+target_include_directories(${PROJECT_NAME} PUBLIC 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/inc>
+)
 
 ```
 
 ## 使用库
+
+
 
 ## 导出库
 很多时候我们需要使用CMake制作一个库并导出
