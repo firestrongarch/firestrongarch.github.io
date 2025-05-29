@@ -82,3 +82,46 @@ install(FILES
 ```CMake
 include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.camke")
 ```
+
+## 程序打包
+下面是一个简单跨平台且具有打包功能的CMake项目，利用`cpack`在构建目录运行`cpack .\CPackConfig.cmake`即可
+```CMake
+cmake_minimum_required(VERSION 3.28.0)
+
+set(CMAKE_CXX_STANDARD 23)
+project(show3d VERSION 0.1.0 LANGUAGES C CXX)
+
+set(CMAKE_PREFIX_PATH "C:/Users/Fu/scoop/apps/vcpkg/2025.04.09/installed/x64-windows")
+
+find_package(pangolin REQUIRED)
+
+add_executable(show3d main.cpp)
+
+target_link_libraries(show3d
+    PRIVATE
+    pango_display
+)
+
+install(TARGETS show3d
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
+
+file(GET_RUNTIME_DEPENDENCIES
+    EXECUTABLES show3d.exe
+    RESOLVED_DEPENDENCIES_VAR resolved_deps
+    UNRESOLVED_DEPENDENCIES_VAR unresolved_deps
+    DIRECTORIES "${CMAKE_PREFIX_PATH}/bin"
+    PRE_EXCLUDE_REGEXES "system32"
+    POST_EXCLUDE_REGEXES "system32"
+)
+install(FILES ${resolved_deps} DESTINATION bin)
+
+message(STATUS "Resolved dependencies: ${resolved_deps}")
+message(STATUS "Unresolved dependencies: ${unresolved_deps}")
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
+```
