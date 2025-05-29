@@ -108,6 +108,7 @@ install(TARGETS show3d
     ARCHIVE DESTINATION lib
 )
 
+# 依赖安装方法
 file(GET_RUNTIME_DEPENDENCIES
     EXECUTABLES show3d.exe
     RESOLVED_DEPENDENCIES_VAR resolved_deps
@@ -118,10 +119,28 @@ file(GET_RUNTIME_DEPENDENCIES
 )
 install(FILES ${resolved_deps} DESTINATION bin)
 
+
 message(STATUS "Resolved dependencies: ${resolved_deps}")
 message(STATUS "Unresolved dependencies: ${unresolved_deps}")
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+```
+- 另一依赖安装方法，可以消除警告:
+```
+set(VCPKG_BIN_DIR "${CMAKE_PREFIX_PATH}/bin")
+string(CONFIGURE [[
+    file(GET_RUNTIME_DEPENDENCIES
+        EXECUTABLES show3d.exe
+        RESOLVED_DEPENDENCIES_VAR resolved_deps
+        UNRESOLVED_DEPENDENCIES_VAR unresolved_deps
+        DIRECTORIES "@VCPKG_BIN_DIR@"
+        PRE_EXCLUDE_REGEXES "system32"
+        POST_EXCLUDE_REGEXES "system32"
+    )
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" 
+        FILES ${resolved_deps})
+]] code @ONLY)
+install(CODE "${code}")
 ```
