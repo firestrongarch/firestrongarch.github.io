@@ -17,7 +17,7 @@ export int add(int a, int b) {
 }
 ```
 
-```CMakeLists
+```cmake
 # CMAkeLists.txt
 add_library(math SHARED)
 target_sources(math PUBLIC FILE_SET CXX_MODULES FILES math.cppm) #添加模块文件
@@ -35,7 +35,7 @@ int main() {
 }
 ```
 
-```CMakeLists
+```cmake
 # CMAkeLists.txt
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE slam) # 链接到模块库
@@ -57,7 +57,7 @@ int main() {
 ```
 
 有两种使用标准库模块的方式，第一种是启用CMake实验性配置：
-```CMakeLists
+```cmake
 # CMakeLists.txt
 cmake_minimum_required(VERSION 4.1.0)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -75,7 +75,7 @@ add_executable(main main.cpp)
 ```
 
 第二种方式，与创建模块类似，在CMakeLists.txt中添加模块文件：
-```CMakeLists
+```cmake
 # CMakeLists.txt
 cmake_minimum_required(VERSION 4.1.0)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -121,7 +121,7 @@ using cv::ORB;
 using cv::SIFT;
 };
 ```
-```CMakeLists.txt
+```cmake
 # CMakeLists.txt
 find_package(OpenCV REQUIRED)
 add_library(cv SHARED)
